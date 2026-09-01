@@ -1,0 +1,16 @@
+# Operating-system and editor artifacts
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.tmp
+*.log
+
+# Internal/source files do not belong in the public deployment repository
+*.md
+*.ps1
+*.pdf
+*.json
+*.env
+*.zip
+*-source.*
