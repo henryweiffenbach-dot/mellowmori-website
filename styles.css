@@ -1,4 +1,4 @@
-:root { --cream:#f3e8d2; --paper:#fffaf0; --forest:#274536; --moss:#5f7848; --gold:#d7ad55; --ink:#2b2b28; --line:#d8c9aa; }
+:root { --cream:#f3e8d2; --paper:#fffaf0; --forest:#274536; --moss:#597043; --gold:#d7ad55; --ink:#2b2b28; --line:#d8c9aa; }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body { margin:0; max-width:100vw; overflow-x:hidden; background:var(--paper); color:var(--ink); font:17px/1.65 Georgia,serif; }
@@ -42,11 +42,25 @@ a:focus-visible { outline:3px solid var(--gold); outline-offset:4px; }
 .unavailable { background:#e6dfd0; color:#4e514b; }
 .secondary-link { border:2px solid var(--forest); color:var(--forest); text-decoration:none; }
 .secondary-link:hover { background:var(--forest); color:#fff; }
-.product-lines { background:#fffdf7; }
+.product-lines { min-width:0; background:#fffdf7; }
+.product-lines>h2 { max-width:100%; overflow-wrap:anywhere; }
 .line-grid, .social-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px; max-width:1100px; margin:42px auto 0; text-align:left; }
-.line-card { display:flex; flex-direction:column; padding:34px; border:1px solid var(--line); border-radius:22px; background:var(--paper); box-shadow:0 12px 35px rgba(39,69,54,.07); }
+.line-card { --line-card-art:none; position:relative; isolation:isolate; min-width:0; min-height:510px; overflow:hidden; border:1px solid var(--line); border-radius:22px; background:var(--paper); box-shadow:0 12px 35px rgba(39,69,54,.1); }
+.line-card::before, .line-card::after { content:""; position:absolute; inset:0; pointer-events:none; }
+.line-card::before { z-index:-2; background-image:var(--line-card-art); background-repeat:no-repeat; background-size:cover; background-position:63% center; }
+.line-card::after { z-index:-1; background:linear-gradient(90deg,rgba(255,250,240,.99) 0%,rgba(255,250,240,.96) 42%,rgba(255,250,240,.66) 66%,rgba(255,250,240,.1) 100%); }
+.line-card--nature { --line-card-art:url("assets/worlds/mellowmori-nature-card-background.webp"); }
+.line-card--little-worlds { --line-card-art:url("assets/worlds/mellowmori-little-worlds-card-background.webp"); border-color:#d7c395; }
+.line-card--little-worlds::after { background:linear-gradient(90deg,rgba(255,250,240,.99) 0%,rgba(255,250,240,.96) 44%,rgba(255,247,226,.66) 68%,rgba(255,244,211,.08) 100%); }
+.line-card__content { min-height:510px; display:flex; flex-direction:column; align-items:flex-start; width:min(64%,430px); padding:38px 34px; }
+.line-card__wordmark { display:block; width:clamp(168px,18vw,218px); height:auto; margin:0 0 2px; object-fit:contain; object-position:left center; }
 .line-card .secondary-link, .line-card .unavailable { align-self:flex-start; margin-top:auto; }
 .line-card h3, .social-grid h3 { margin:.4em 0; color:var(--forest); font-size:28px; line-height:1.15; }
+.line-card--nature h3 { font-family:Georgia,serif; font-size:clamp(30px,3vw,40px); letter-spacing:-.02em; }
+.line-name { color:var(--forest); }
+.line-name--nature { margin:-2px 0 5px; font:600 clamp(17px,1.7vw,21px)/1.1 Georgia,"Times New Roman",serif; letter-spacing:.22em; text-transform:uppercase; }
+.line-name--little-worlds { margin:-2px 0 5px; font:700 clamp(30px,3.2vw,42px)/1.02 "Trebuchet MS","Avenir Next Rounded","Arial Rounded MT Bold",Arial,sans-serif; letter-spacing:-.035em; }
+.line-card--little-worlds h3 { margin:.55em 0 .4em; font:700 clamp(25px,2.3vw,32px)/1.12 "Trebuchet MS","Avenir Next Rounded","Arial Rounded MT Bold",Arial,sans-serif; letter-spacing:-.02em; }
 .coming-soon { background:var(--forest); color:#f8f0df; }
 .coming-soon h2, .coming-soon .eyebrow { color:#fff2c4; }
 .coming-soon>p:last-child { max-width:760px; margin:18px auto 0; }
@@ -84,6 +98,8 @@ footer p { margin:0 0 14px; }
   .hero-art { width:min(100%,260px); padding:24px; }
   .books { grid-template-columns:1fr; }
   .line-grid, .social-grid { grid-template-columns:1fr; }
+  .line-card, .line-card__content { min-height:470px; }
+  .line-card__content { width:min(62%,460px); }
   .book-card { grid-template-columns:150px 1fr; }
   .book-details { grid-template-columns:1fr; }
 }
@@ -100,6 +116,12 @@ footer p { margin:0 0 14px; }
   .book-card>img { width:190px; margin:auto; }
   .book-details { padding:24px; text-align:left; }
   .preview-grid { gap:8px; }
+  .line-card { min-height:520px; }
+  .line-card::before { background-position:58% center; }
+  .line-card::after, .line-card--little-worlds::after { background:linear-gradient(180deg,rgba(255,250,240,.99) 0%,rgba(255,250,240,.97) 47%,rgba(255,250,240,.7) 67%,rgba(255,250,240,.08) 100%); }
+  .line-card__content { width:100%; min-height:520px; padding:30px 26px 36px; }
+  .line-card__wordmark { width:190px; }
+  .line-card__content>p:not(.edition):not(.line-name) { max-width:92%; }
   .legal-shell { width:min(100% - 40px,820px); padding:60px 0 80px; }
 }
-@media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; } }
