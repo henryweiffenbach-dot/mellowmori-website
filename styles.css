@@ -32,6 +32,7 @@ a:focus-visible { outline:3px solid var(--gold); outline-offset:4px; }
 .books>* { min-width:0; }
 .section-heading>p:last-child { margin:16px auto 0; }
 .book-card { display:grid; grid-template-columns:minmax(160px,42%) 1fr; gap:30px; align-items:center; padding:28px; background:var(--paper); border:1px solid var(--line); border-radius:22px; box-shadow:0 16px 45px rgba(39,69,54,.08); }
+.books>.book-card:only-of-type { grid-column:1/-1; width:min(100%,920px); justify-self:center; }
 .book-card>img { box-shadow:0 10px 24px rgba(43,43,40,.18); }
 .book-card h3 { margin:.35em 0; color:var(--forest); font-size:32px; line-height:1.05; }
 .book-details { grid-column:1/-1; display:grid; grid-template-columns:minmax(240px,.7fr) minmax(0,1.3fr); gap:40px; align-items:center; margin-top:16px; padding:34px; border-radius:22px; background:#fffdf7; border:1px solid var(--line); }
