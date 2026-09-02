@@ -60,7 +60,7 @@ a:focus-visible { outline:3px solid var(--gold); outline-offset:4px; }
 .line-card--nature h3 { font-family:Georgia,serif; font-size:clamp(30px,3vw,40px); letter-spacing:-.02em; }
 .line-name { color:var(--forest); }
 .line-name--nature { margin:-2px 0 5px; font:600 clamp(17px,1.7vw,21px)/1.1 Georgia,"Times New Roman",serif; letter-spacing:.22em; text-transform:uppercase; }
-.line-name--little-worlds { margin:-2px 0 5px; font:700 clamp(30px,3.2vw,42px)/1.02 "Trebuchet MS","Avenir Next Rounded","Arial Rounded MT Bold",Arial,sans-serif; letter-spacing:-.035em; }
+.line-name--little-worlds { margin:-2px 0 5px; font:700 clamp(17px,1.7vw,21px)/1.1 "Trebuchet MS","Avenir Next Rounded","Arial Rounded MT Bold",Arial,sans-serif; letter-spacing:.015em; }
 .line-card--little-worlds h3 { margin:.55em 0 .4em; font:700 clamp(25px,2.3vw,32px)/1.12 "Trebuchet MS","Avenir Next Rounded","Arial Rounded MT Bold",Arial,sans-serif; letter-spacing:-.02em; }
 .coming-soon { background:var(--forest); color:#f8f0df; }
 .coming-soon h2, .coming-soon .eyebrow { color:#fff2c4; }
